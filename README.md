@@ -1,22 +1,28 @@
 # usage_states
-
+_
 A  Flutter plugin use to query user applicationUseTime/SMSRecord/callRecord.
-
-Add the following permission to the manifest namespace in AndroidManifest.xml:
-```    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-<uses-permission android:name="android.permission.PACKAGE_USAGE_STATS" tools:ignore="ProtectedPermissions"/>
-<uses-permission android:name="android.permission.READ_CONTACTS"/>
-<uses-permission android:name="android.permission.READ_CALL_LOG"/>
-<uses-permission android:name="android.permission.READ_SMS" />
+can use in background
+## install
+_
 ```
-## Getting Started
+usage_states:
+      git:
+        url: https://github.com/imagination24/usage_state.git
+```
+## Permission
+_
+use ```usage_permission``` to request permission
+## Usage
+_
+```
+    //queryUsageTimeOfToday
+    DateTime endDate = DateTime.now();
+    DateTime startDate = DateTime(endDate.year, endDate.month, endDate.day, 0, 0, 0);
+    List list = await UsageStates().queryUsageTime(startDate, endDate);
+    //queryCallRecordsOfToday
+    List<CallRecord> callRecordList = await UsageStates().queryCallRecords();
+    //querySMSRecordsOfToday
+    List<SMSRecord> msgList = await UsageStates().querySMSRecords();
+```
 
-This project is a starting point for a Flutter
-[plug-in package](https://flutter.dev/developing-packages/),
-a specialized package that includes platform-specific implementation code for
-Android and/or iOS.
-
-For help getting started with Flutter development, view the
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
 
