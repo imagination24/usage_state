@@ -58,7 +58,7 @@ public class getSMSRecords {
     }
 
     static String formatDate(long longDate){
-        @SuppressLint("SimpleDateFormat") SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+        @SuppressLint("SimpleDateFormat") SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         Date d = new Date(longDate);
         String strDate = dateFormat.format(d);
         return  strDate;
